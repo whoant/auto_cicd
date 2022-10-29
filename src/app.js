@@ -9,6 +9,6 @@ app.get('/api', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Start server on ${process.env.NODE_ENV}`);
+    console.log(`Start server on ${process.env.NODE_ENV} env`);
     console.log(`Server run on ${PORT}`);
 });
