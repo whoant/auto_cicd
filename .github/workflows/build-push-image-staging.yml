@@ -8,7 +8,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  IMAGE_VERSION: ${{ github.ref_name }}-${{ github.sha }}
+#  IMAGE_VERSION: ${{ github.ref_name }}-${{ github.sha }}
 
 jobs:
   build-and-push-image:
@@ -24,8 +24,8 @@ jobs:
         run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
       - name: Show
         run: echo ${SHORT_SHA}
-      - name: Show IMAGE_VERSION
-        run: echo ${{ env.IMAGE_VERSION }}
+      - name: Add IMAGE_VERSION env with branch and short sha
+        run: echo "IMAGE_VERSION = `echo ${github.ref_name }-${SHORT_SHA} `" >> $GITHUB_ENV
 
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
