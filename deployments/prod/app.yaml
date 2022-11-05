@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auto_cicd
+  namespace: auto_cicd
+spec:
+  selector:
+    matchLabels:
+      app: auto_cicd
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: auto_cicd
+    spec:
+      containers:
+        - name: auto_cicd
+          image: ghcr.io/whoant/auto_cicd:VERSION
+
