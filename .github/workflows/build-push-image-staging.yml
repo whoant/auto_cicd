@@ -44,4 +44,4 @@ jobs:
         with:
           args: get pods
       - name: List all file
-        run: echo 'ls'
+        run: ls
