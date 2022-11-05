@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment.auto-cicd
+  name: auto-cicd
   namespace: auto-cicd-staging
 spec:
   selector:
@@ -14,6 +14,6 @@ spec:
         app: auto-cicd
     spec:
       containers:
-        - name: auto_cicd-node
+        - name: auto-cicd-node
           image: ghcr.io/whoant/auto_cicd:VERSION
 

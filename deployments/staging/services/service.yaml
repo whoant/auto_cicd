@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: service.auto_cicd
+  name: auto-cicd
   namespace: auto-cicd-staging
 spec:
   selector:

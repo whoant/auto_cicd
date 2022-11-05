@@ -4,5 +4,5 @@ metadata:
   name: configmap.auto-cicd
   namespace: auto-cicd-staging
 data:
-  PORT: 3002
+  PORT: "3002"
   NODE_ENV: development
