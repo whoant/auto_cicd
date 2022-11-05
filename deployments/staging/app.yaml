@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment.auto_cicd
-  namespace: auto_cicd_staging
+  name: deployment.auto-cicd
+  namespace: auto-cicd-staging
 spec:
   selector:
     matchLabels:
-      app: auto_cicd
+      app: auto-cicd
   replicas: 1
   template:
     metadata:
       labels:
-        app: auto_cicd
+        app: auto-cicd
     spec:
       containers:
         - name: auto_cicd-node
