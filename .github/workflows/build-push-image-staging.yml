@@ -25,7 +25,7 @@ jobs:
       - name: Show
         run: echo ${SHORT_SHA}
       - name: Add IMAGE_VERSION env with branch and short sha
-        run: echo "IMAGE_VERSION = `echo ${github.ref_name }-${SHORT_SHA} `" >> $GITHUB_ENV
+        run: echo "IMAGE_VERSION = `echo ${github.ref_name}-${SHORT_SHA} `" >> $GITHUB_ENV
 
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -45,5 +45,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.IMAGE_VERSION }}
+          tags: ${{ IMAGE_VERSION }}
 #          labels: ${{ steps.meta.outputs.labels }}
