@@ -41,4 +41,7 @@ jobs:
         uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-        run: echo 'kubectl get pods'
+        with:
+          args: get pods
+      - name: List all file
+        run: echo 'ls'
