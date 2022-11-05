@@ -20,12 +20,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      #      - name: Add SHORT_SHA env property with commit short sha
-      #        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
-      #      - name: Show SHORT_SHA
-      #        run: echo ${SHORT_SHA}
+      - name: Add SHORT_SHA env property with commit short sha
+        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
       - name: Add IMAGE_VERSION env with branch and short sha
-        run: echo "IMAGE_VERSION=`echo ${{github.ref_name}}-(${GITHUB_SHA} | cut -c1-8) `" >> $GITHUB_ENV
+        run: echo "IMAGE_VERSION=`echo ${{github.ref_name}}-${SHORT_SHA} `" >> $GITHUB_ENV
       - name: Show
         run: echo ${IMAGE_VERSION}
 #      - name: Log in to the Container registry
