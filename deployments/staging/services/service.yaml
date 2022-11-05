@@ -9,4 +9,5 @@ spec:
   ports:
     - targetPort: 3002
       port: 3003
+      nodePort: 30304
   type: NodePort

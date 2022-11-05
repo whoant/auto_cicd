@@ -16,4 +16,15 @@ spec:
       containers:
         - name: auto-cicd-node
           image: ghcr.io/whoant/auto_cicd:VERSION
-
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3002
+          envFrom:
+            - configMapRef: { name: configmap.auto-cicd }
+          resources:
+            limits:
+              memory: "200Mi"
+              cpu: "200m"
+            requests:
+              memory: "200Mi"
+              cpu: "100m"
