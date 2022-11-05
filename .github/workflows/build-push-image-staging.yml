@@ -38,10 +38,8 @@ jobs:
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }}
       - name: Setup K8s
-        uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        uses: tale/kubectl-action@v1
         with:
-          args: get pods
+          base64-kube-config: ${{ secrets.KUBE_CONFIG }}
       - name: Deploy to K8s
         run: ./deployments/staging/update_version_and_deploy.sh ${{ env.IMAGE_VERSION }}
